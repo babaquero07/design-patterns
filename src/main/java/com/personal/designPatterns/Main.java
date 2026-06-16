@@ -1,5 +1,6 @@
 package com.personal.designPatterns;
 
+import com.personal.designPatterns.factoryMethod.databaseConnectors.*;
 import com.personal.designPatterns.factoryMethod.generadorDialogos.DialogWeb;
 import com.personal.designPatterns.factoryMethod.generadorDialogos.DialogWindows;
 import com.personal.designPatterns.factoryMethod.generadorDialogos.Dialogo;
@@ -161,6 +162,14 @@ public class Main {
 
         Dialogo dialogoWindows = new DialogWindows();
         dialogoWindows.renderizar();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Factory method method: Conexión a base de datos");
+        HandleDb mysql = new CreadorConexionMySQL();
+        mysql.connectAndExecuteQuery();
+
+        HandleDb postgresql = new CreadorConexionPostgreSQL();
+        postgresql.connectAndExecuteQuery();
         System.out.println("----------------------------------------------");
     }
 }
