@@ -4,11 +4,16 @@ import com.personal.designPatterns.strategy.characterAndArms.AttackWithArcle;
 import com.personal.designPatterns.strategy.characterAndArms.AttackWithSpade;
 import com.personal.designPatterns.strategy.characterAndArms.AttackWithSpell;
 import com.personal.designPatterns.strategy.characterAndArms.GameCharacter;
+import com.personal.designPatterns.strategy.fileManager.MyFile;
+import com.personal.designPatterns.strategy.fileManager.RarCompress;
+import com.personal.designPatterns.strategy.fileManager.TarCompress;
+import com.personal.designPatterns.strategy.fileManager.ZipCompress;
 import com.personal.designPatterns.strategy.taxesByCountry.Bill;
 import com.personal.designPatterns.strategy.taxesByCountry.ColombianTax;
 import com.personal.designPatterns.strategy.taxesByCountry.TaxExempt;
 import com.personal.designPatterns.strategy.taxesByCountry.UsaTax;
 
+import java.io.File;
 import java.math.BigDecimal;
 
 public class Main {
@@ -39,6 +44,17 @@ public class Main {
 
         Bill noTaxBill = new Bill(new TaxExempt(), new BigDecimal("1200"), "col");
         noTaxBill.printTax();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Exercise 3: Compress File");
+        MyFile file1 = new MyFile("/home/abaquero/Documents/Studies/design-patterns/pom.xml", new RarCompress());
+        file1.compressFile();
+
+        MyFile file2 = new MyFile("/home/abaquero/Documents/Studies/design-patterns/pom.xml", new ZipCompress());
+        file2.compressFile();
+
+        MyFile file3 = new MyFile("/home/abaquero/Documents/Studies/design-patterns/pom.xml", new TarCompress());
+        file3.compressFile();
         System.out.println("----------------------------------------------");
     }
 }
