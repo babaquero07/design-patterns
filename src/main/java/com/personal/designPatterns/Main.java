@@ -16,6 +16,12 @@ import com.personal.designPatterns.strategy.taxesByCountry.Bill;
 import com.personal.designPatterns.strategy.taxesByCountry.ColombianTax;
 import com.personal.designPatterns.strategy.taxesByCountry.TaxExempt;
 import com.personal.designPatterns.strategy.taxesByCountry.UsaTax;
+import com.personal.designPatterns.templateMethod.cafeteria.Cafeteria;
+import com.personal.designPatterns.templateMethod.cafeteria.PrepararCafe;
+import com.personal.designPatterns.templateMethod.cafeteria.PrepararTe;
+import com.personal.designPatterns.templateMethod.webscraper.LinkedInBot;
+import com.personal.designPatterns.templateMethod.webscraper.TwitterBot;
+import com.personal.designPatterns.templateMethod.webscraper.WebScraperBot;
 
 import java.math.BigDecimal;
 
@@ -82,6 +88,33 @@ public class Main {
                 new BigDecimal("234")
         );
         withNoShipping.getTotal();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("╔══════════════════════════════════════════════════╗");
+        System.out.println("║     PATRÓN TEMPLATE METHOD — Web Scraper Bots    ║");
+        System.out.println("╚══════════════════════════════════════════════════╝");
+
+        WebScraperBot linkedIn = new LinkedInBot(
+                "recruiter@empresa.com",
+                "S3cr3tP@ss",
+                "Java Developer Bogotá"
+        );
+        linkedIn.ejecutar();
+
+        WebScraperBot twitter = new TwitterBot(
+                "mi_cuenta",
+                "P@ssword123",
+                "#JavaDev"
+        );
+        twitter.ejecutar();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Template method: Cafeteria");
+        Cafeteria prepararCafe = new PrepararCafe();
+        prepararCafe.prepareDrink();
+
+        Cafeteria prepararTe = new PrepararTe();
+        prepararTe.prepareDrink();
         System.out.println("----------------------------------------------");
     }
 }
