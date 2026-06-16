@@ -1,5 +1,9 @@
 package com.personal.designPatterns;
 
+import com.personal.designPatterns.factoryMethod.configFileReaders.FabricaLectorProperties;
+import com.personal.designPatterns.factoryMethod.configFileReaders.FabricaLectorYAML;
+import com.personal.designPatterns.factoryMethod.configFileReaders.Lector;
+import com.personal.designPatterns.factoryMethod.configFileReaders.LectorConfig;
 import com.personal.designPatterns.factoryMethod.databaseConnectors.*;
 import com.personal.designPatterns.factoryMethod.generadorDialogos.DialogWeb;
 import com.personal.designPatterns.factoryMethod.generadorDialogos.DialogWindows;
@@ -170,6 +174,14 @@ public class Main {
 
         HandleDb postgresql = new CreadorConexionPostgreSQL();
         postgresql.connectAndExecuteQuery();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Factory method method: Lectores archivos de configuración");
+        Lector lectorYaml = new FabricaLectorYAML();
+        lectorYaml.leerPropiedad("db.host");
+
+        Lector lectorProperties = new FabricaLectorProperties();
+        lectorProperties.leerPropiedad("db.host");
         System.out.println("----------------------------------------------");
     }
 }
