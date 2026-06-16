@@ -16,6 +16,9 @@ import com.personal.designPatterns.strategy.taxesByCountry.Bill;
 import com.personal.designPatterns.strategy.taxesByCountry.ColombianTax;
 import com.personal.designPatterns.strategy.taxesByCountry.TaxExempt;
 import com.personal.designPatterns.strategy.taxesByCountry.UsaTax;
+import com.personal.designPatterns.templateMethod.BasicCICD.BackendDeploy;
+import com.personal.designPatterns.templateMethod.BasicCICD.Deploy;
+import com.personal.designPatterns.templateMethod.BasicCICD.FrontendDeploy;
 import com.personal.designPatterns.templateMethod.cafeteria.Cafeteria;
 import com.personal.designPatterns.templateMethod.cafeteria.PrepararCafe;
 import com.personal.designPatterns.templateMethod.cafeteria.PrepararTe;
@@ -115,6 +118,14 @@ public class Main {
 
         Cafeteria prepararTe = new PrepararTe();
         prepararTe.prepareDrink();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Template method: CI/CD");
+        Deploy backendDeploy = new BackendDeploy();
+        backendDeploy.executeDeploy();
+
+        Deploy frontendDeploy = new FrontendDeploy();
+        frontendDeploy.executeDeploy();
         System.out.println("----------------------------------------------");
     }
 }
