@@ -3,7 +3,10 @@ package com.personal.designPatterns;
 import com.personal.designPatterns.factoryMethod.configFileReaders.FabricaLectorProperties;
 import com.personal.designPatterns.factoryMethod.configFileReaders.FabricaLectorYAML;
 import com.personal.designPatterns.factoryMethod.configFileReaders.Lector;
-import com.personal.designPatterns.factoryMethod.configFileReaders.LectorConfig;
+import com.personal.designPatterns.factoryMethod.createEnemies.Spawner;
+import com.personal.designPatterns.factoryMethod.createEnemies.ZonaJefeFabrica;
+import com.personal.designPatterns.factoryMethod.createEnemies.ZonaMediaFabrica;
+import com.personal.designPatterns.factoryMethod.createEnemies.ZonadeInicioFabrica;
 import com.personal.designPatterns.factoryMethod.databaseConnectors.*;
 import com.personal.designPatterns.factoryMethod.generadorDialogos.DialogWeb;
 import com.personal.designPatterns.factoryMethod.generadorDialogos.DialogWindows;
@@ -182,6 +185,17 @@ public class Main {
 
         Lector lectorProperties = new FabricaLectorProperties();
         lectorProperties.leerPropiedad("db.host");
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Factory method method: Enemies generator");
+        Spawner zonaInicio = new ZonadeInicioFabrica();
+        zonaInicio.spawnEnemyAndAttack();
+
+        Spawner zonaMedia = new ZonaMediaFabrica();
+        zonaMedia.spawnEnemyAndAttack();
+
+        Spawner zonaJefe = new ZonaJefeFabrica();
+        zonaJefe.spawnEnemyAndAttack();
         System.out.println("----------------------------------------------");
     }
 }
