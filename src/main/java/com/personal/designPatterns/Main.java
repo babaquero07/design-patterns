@@ -22,6 +22,9 @@ import com.personal.designPatterns.templateMethod.basicCICD.FrontendDeploy;
 import com.personal.designPatterns.templateMethod.cafeteria.Cafeteria;
 import com.personal.designPatterns.templateMethod.cafeteria.PrepararCafe;
 import com.personal.designPatterns.templateMethod.cafeteria.PrepararTe;
+import com.personal.designPatterns.templateMethod.rpg.CreateCharacter;
+import com.personal.designPatterns.templateMethod.rpg.CreateMage;
+import com.personal.designPatterns.templateMethod.rpg.CreateWarrior;
 import com.personal.designPatterns.templateMethod.webscraper.LinkedInBot;
 import com.personal.designPatterns.templateMethod.webscraper.TwitterBot;
 import com.personal.designPatterns.templateMethod.webscraper.WebScraperBot;
@@ -126,6 +129,14 @@ public class Main {
 
         Deploy frontendDeploy = new FrontendDeploy();
         frontendDeploy.executeDeploy();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Template method: RPG");
+        CreateCharacter warrior = new CreateWarrior();
+        warrior.initializeStats();
+
+        CreateCharacter mage = new CreateMage();
+        mage.initializeStats();
         System.out.println("----------------------------------------------");
     }
 }
