@@ -1,5 +1,11 @@
 package com.personal.designPatterns;
 
+import com.personal.designPatterns.factoryMethod.generadorDialogos.DialogWeb;
+import com.personal.designPatterns.factoryMethod.generadorDialogos.DialogWindows;
+import com.personal.designPatterns.factoryMethod.generadorDialogos.Dialogo;
+import com.personal.designPatterns.factoryMethod.transportLogic.Logistica;
+import com.personal.designPatterns.factoryMethod.transportLogic.LogisticaMaritima;
+import com.personal.designPatterns.factoryMethod.transportLogic.LogisticaTerrestre;
 import com.personal.designPatterns.strategy.gameSimulator.Arch;
 import com.personal.designPatterns.strategy.gameSimulator.GameCharacter;
 import com.personal.designPatterns.strategy.gameSimulator.MagicSpell;
@@ -137,6 +143,24 @@ public class Main {
 
         CreateCharacter mage = new CreateMage();
         mage.initializeStats();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Factory method method: Logistica entrega");
+        System.out.println("=== PEDIDO 1: Entrega nacional ===");
+        Logistica logistica1 = new LogisticaTerrestre();
+        logistica1.planificarEntrega();
+
+        System.out.println("=== PEDIDO 2: Entrega internacional ===");
+        Logistica logistica2 = new LogisticaMaritima();
+        logistica2.planificarEntrega();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Factory method method: Generador de dialogos");
+        Dialogo dialogoWeb = new DialogWeb();
+        dialogoWeb.renderizar();
+
+        Dialogo dialogoWindows = new DialogWindows();
+        dialogoWindows.renderizar();
         System.out.println("----------------------------------------------");
     }
 }
