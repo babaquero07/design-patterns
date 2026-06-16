@@ -8,6 +8,10 @@ import com.personal.designPatterns.strategy.fileManager.MyFile;
 import com.personal.designPatterns.strategy.fileManager.RarCompress;
 import com.personal.designPatterns.strategy.fileManager.TarCompress;
 import com.personal.designPatterns.strategy.fileManager.ZipCompress;
+import com.personal.designPatterns.strategy.shipping.ExpressShipping;
+import com.personal.designPatterns.strategy.shipping.Order;
+import com.personal.designPatterns.strategy.shipping.ShippingSea;
+import com.personal.designPatterns.strategy.shipping.StoreInPickup;
 import com.personal.designPatterns.strategy.taxesByCountry.Bill;
 import com.personal.designPatterns.strategy.taxesByCountry.ColombianTax;
 import com.personal.designPatterns.strategy.taxesByCountry.TaxExempt;
@@ -55,6 +59,29 @@ public class Main {
 
         MyFile file3 = new MyFile("/home/abaquero/Documents/Studies/design-patterns/pom.xml", new TarCompress());
         file3.compressFile();
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Exercise 4: Shipping method");
+        Order withShippingSea = new Order(
+                124,
+                new ShippingSea(),
+                new BigDecimal("1200")
+        );
+        withShippingSea.getTotal();
+
+        Order withExpressShipping = new Order(
+                345,
+                new ExpressShipping(),
+                new BigDecimal("367")
+        );
+        withExpressShipping.getTotal();
+
+        Order withNoShipping = new Order(
+                234,
+                new StoreInPickup(),
+                new BigDecimal("234")
+        );
+        withNoShipping.getTotal();
         System.out.println("----------------------------------------------");
     }
 }
