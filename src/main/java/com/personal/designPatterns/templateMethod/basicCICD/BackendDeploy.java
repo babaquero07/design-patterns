@@ -1,4 +1,4 @@
-package com.personal.designPatterns.templateMethod.BasicCICD;
+package com.personal.designPatterns.templateMethod.basicCICD;
 
 public class BackendDeploy extends Deploy {
     @Override

@@ -1,4 +1,4 @@
-package com.personal.designPatterns.templateMethod.BasicCICD;
+package com.personal.designPatterns.templateMethod.basicCICD;
 
 public abstract class Deploy {
     public final void executeDeploy() {
